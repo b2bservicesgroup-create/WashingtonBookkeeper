@@ -1,0 +1,91 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = "Small business bookkeeping for Washington: monthly reconciliation, financial statements and catch-up services from B2B Solutions in Rochester, WA.",
+  ogType = 'website',
+} = Astro.props;
+
+const siteURL = 'https://washingtonbookkeeper.com';
+const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
+const ogImageURL = new URL('/logo/b2b-logo-768w.png', siteURL).href;
+const fullTitle = `${title} | WashingtonBookkeeper.com`;
+
+const accountingServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'WashingtonBookkeeper.com — B2B Solutions',
+  url: siteURL,
+  telephone: '360-529-2672',
+  email: 'info@b2bsolutions.biz',
+  description:
+    'Monthly small business bookkeeping, reconciliation, financial statements and catch-up services in Washington State.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Rochester',
+    addressRegion: 'WA',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Olympia' },
+    { '@type': 'City', name: 'Lacey' },
+    { '@type': 'City', name: 'Tumwater' },
+    { '@type': 'City', name: 'Rochester' },
+    { '@type': 'City', name: 'Centralia' },
+    { '@type': 'City', name: 'Chehalis' },
+    { '@type': 'City', name: 'Yelm' },
+    { '@type': 'City', name: 'Tenino' },
+    { '@type': 'State', name: 'Washington' },
+  ],
+  priceRange: '$$',
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#004078" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="WashingtonBookkeeper.com" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>{fullTitle}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(accountingServiceSchema)} />
+    <slot name="head" />
+  </head>
+  <body class="font-sans antialiased text-ink bg-white text-[18px] leading-relaxed">
+    <slot />
+  </body>
+</html>

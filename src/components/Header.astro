@@ -1,0 +1,91 @@
+---
+const navLinks = [
+  { href: '/#why', label: 'Why it matters' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#how', label: 'How it works' },
+  { href: '/#learn', label: 'Learn' },
+  { href: '/#faq', label: 'FAQ' },
+];
+
+const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
+---
+
+<!-- Top contact bar -->
+<div class="bg-navy text-white text-sm">
+  <div class="max-w-6xl mx-auto px-6 py-2.5 flex flex-wrap items-center justify-between gap-2 gap-x-6">
+    <div>Small business bookkeeping from B2B Solutions &middot; Rochester, WA</div>
+    <div class="flex flex-wrap gap-5">
+      <a href="tel:3605292672" class="text-white hover:text-sky no-underline">360-529-2672</a>
+      <a href="sms:3605290761" class="text-white hover:text-sky no-underline">Text 360-529-0761</a>
+      <a href="mailto:info@b2bsolutions.biz" class="text-white hover:text-sky no-underline">info@b2bsolutions.biz</a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="border-b border-[#E3ECF7] bg-white sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-3 no-underline text-navy">
+      <img src="/logo/b2b-mark.svg" alt="" class="h-11 w-auto" />
+      <span class="flex flex-col leading-tight">
+        <span class="font-heading font-extrabold text-xl">WashingtonBookkeeper</span>
+        <span class="text-[13px] text-[#4A5A70]">by B2B Solutions</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 font-semibold text-base">
+      {navLinks.map(({ href, label }) => (
+        <a href={href} class="text-navy no-underline hover:text-accent">{label}</a>
+      ))}
+      <a
+        href={bookingURL}
+        class="bg-accent text-white no-underline px-5 py-3 rounded-full hover:bg-navy transition-colors"
+      >
+        Free consultation
+      </a>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      class="lg:hidden p-2 rounded-md text-navy hover:bg-sky transition-colors"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg id="icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-[#E3ECF7] bg-white">
+    <nav class="px-6 py-4 flex flex-col gap-3 font-semibold">
+      {navLinks.map(({ href, label }) => (
+        <a href={href} class="text-navy no-underline py-1">{label}</a>
+      ))}
+      <a
+        href={bookingURL}
+        class="bg-accent text-white no-underline text-center px-5 py-3 rounded-full mt-1"
+      >
+        Free consultation
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

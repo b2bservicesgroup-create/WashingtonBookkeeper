@@ -1,0 +1,368 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
+
+const whyCards = [
+  {
+    title: "See cash flow before it's a crisis",
+    body: "Profitable on paper isn't the same as cash in the bank. Reconciled accounts show what's really coming in and going out each month.",
+    icon: 'M12 8v4l2.5 1.5M20 12a8 8 0 11-16 0 8 8 0 0116 0z',
+  },
+  {
+    title: 'Make tax season painless',
+    body: "Organized, categorized records mean your CPA spends less time digging — and you're less likely to miss deductions you've earned.",
+    icon: 'M7 3h7l4 4v14H7zM9 12h6M9 16h6',
+  },
+  {
+    title: 'Keep business and personal separate',
+    body: 'Mixing accounts muddies your true profit and can weaken the liability protection your LLC is meant to give you.',
+    icon: 'M4 12h6M14 12h6M12 4v16',
+  },
+  {
+    title: 'Be ready for lenders and growth',
+    body: 'Banks, landlords and investors ask for financial statements. Current books let you say yes to opportunities without a scramble.',
+    icon: 'M4 20h16M6 16V9M11 16V5M16 16v-4',
+  },
+];
+
+const waCards = [
+  { title: 'B&O tax', body: 'Business & Occupation tax applies to gross income, by classification.' },
+  { title: 'Sales & use tax', body: 'Collected and remitted at the right local rate for where you sell.' },
+  { title: 'Excise returns', body: 'Filed monthly, quarterly or annually — on the schedule the state assigns you.' },
+  { title: 'Year-end package', body: 'Ready for your tax professional, with nothing left to chase.' },
+];
+
+const services = [
+  { num: 1, title: 'Transaction recording', body: 'Every transaction recorded and categorized consistently, so reports mean something.' },
+  { num: 2, title: 'Bank & credit card reconciliation', body: "Your books matched to your statements, catching errors, duplicates and fraud early." },
+  { num: 3, title: 'Payables & receivables', body: 'Know who owes you, who you owe, and when — so nothing slips through.' },
+  { num: 4, title: 'Monthly financial statements', body: 'Balance sheet, profit & loss and a plain-language summary every month.' },
+  { num: 5, title: 'Software management', body: 'We work in QuickBooks Online, Xero, Wave or FreshBooks — or help you choose and set one up.' },
+  { num: 6, title: 'Year-end tax preparation', body: 'We organize your books and coordinate directly with your CPA or tax preparer.' },
+];
+
+const whoFor = [
+  'Businesses mixing personal and business finances that need clean separation',
+  'New LLCs and startups building accurate records from day one',
+  'Companies that have fallen behind and need to catch up their books',
+  'Businesses preparing for tax season that need organized, accurate records',
+  'Contractors, retailers, service firms and landlords who want monthly clarity',
+];
+
+const steps = [
+  { num: '01', title: 'Free consultation', body: 'We review your finances, software setup and the current state of your books.' },
+  { num: '02', title: 'Onboarding & setup', body: 'We connect your accounts, clean up your chart of accounts and set consistent categories.' },
+  { num: '03', title: 'Monthly bookkeeping', body: 'We record, categorize and reconcile every transaction, every month.' },
+  { num: '04', title: 'Reporting & review', body: 'You get monthly statements and a plain-language read on your business’s health.' },
+];
+
+const glossary = [
+  { term: 'Reconciliation', def: 'Matching your books to bank and card statements so every dollar is accounted for.' },
+  { term: 'Chart of accounts', def: 'The list of categories every transaction is sorted into — the backbone of your reports.' },
+  { term: 'Profit & loss', def: 'Revenue minus expenses over a period — tells you if you made money.' },
+  { term: 'Balance sheet', def: "A snapshot of what the business owns, owes and what's left for the owners." },
+  { term: 'Accounts receivable', def: "Money customers owe you for work you've already invoiced." },
+  { term: 'Accounts payable', def: "Bills you've received but haven't paid yet." },
+];
+
+const faqs = [
+  { q: 'Do you prepare tax returns?', a: 'No — we prepare and organize your books so your tax professional has everything they need, and we coordinate with your CPA or preparer at year-end.' },
+  { q: 'What accounting software do you use?', a: 'QuickBooks Online, Wave, Xero and FreshBooks. We can work in what you have or help you choose and set up the right platform.' },
+  { q: 'How do you access our financial accounts?', a: 'Through secure, read-only accounting integrations. We never have direct access to move or transfer funds.' },
+  { q: 'How often will I get reports?', a: "Monthly: a balance sheet, profit & loss statement and a brief summary. Need more often? We'll set that up during onboarding." },
+];
+
+const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 'Chehalis', 'Yelm', 'Tenino'];
+---
+
+<Layout title="Washington Small Business Bookkeeping">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section id="top" class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-wrap items-center gap-14">
+        <div class="flex-1 min-w-[320px] flex flex-col gap-6">
+          <span class="self-start bg-white text-navy font-semibold text-sm px-4 py-2 rounded-full border border-[#CFE0F7]">
+            Bookkeeping for Washington small businesses
+          </span>
+          <h1 class="font-heading font-extrabold text-[40px] md:text-[60px] leading-[1.05] text-navy tracking-tight">
+            Clean books.<br />Clear numbers.<br /><span class="text-accent">Confident decisions.</span>
+          </h1>
+          <p class="text-muted text-xl max-w-lg">
+            Your finances — organized, accurate and always up to date. We handle the day-to-day bookkeeping so you get your evenings back and know exactly where your business stands.
+          </p>
+          <div class="flex flex-wrap gap-3.5">
+            <a href={bookingURL} class="bg-accent text-white no-underline font-bold px-7 py-4 rounded-full text-lg hover:bg-navy transition-colors">
+              Book a free consultation
+            </a>
+            <a href="#why" class="bg-white text-navy no-underline font-bold px-7 py-4 rounded-full text-lg border-2 border-navy hover:bg-sky2 transition-colors">
+              Why bookkeeping matters
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-x-6 gap-y-2.5 text-base text-muted">
+            <span>&#10003; QuickBooks Online, Xero, Wave &amp; FreshBooks</span>
+            <span>&#10003; Monthly statements in plain language</span>
+            <span>&#10003; Read-only access to your accounts</span>
+          </div>
+        </div>
+
+        <!-- Hero card -->
+        <div class="flex-1 min-w-[320px] bg-white rounded-[20px] p-7 shadow-[0_20px_50px_rgba(11,37,69,0.12)] flex flex-col gap-[18px]">
+          <div class="flex justify-between items-center">
+            <div class="font-heading font-bold text-lg text-navy">Your monthly package</div>
+            <div class="text-sm text-success bg-[#E3F6EE] px-3 py-1 rounded-full font-semibold">Reconciled</div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div class="flex gap-3.5 items-center p-3.5 rounded-xl bg-sky2">
+              <div class="w-10 h-10 rounded-[10px] bg-[#DCEAFF] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3v18h18"></path><path d="M7 15l4-4 3 3 5-6"></path></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-navy">Profit &amp; Loss statement</div>
+                <div class="text-[15px] text-[#4A5A70]">What you earned, what you spent</div>
+              </div>
+            </div>
+            <div class="flex gap-3.5 items-center p-3.5 rounded-xl bg-sky2">
+              <div class="w-10 h-10 rounded-[10px] bg-[#DCEAFF] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M4 7h16"></path><path d="M6 7l-3 7h6z"></path><path d="M18 7l-3 7h6z"></path></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-navy">Balance sheet</div>
+                <div class="text-[15px] text-[#4A5A70]">What you own, what you owe</div>
+              </div>
+            </div>
+            <div class="flex gap-3.5 items-center p-3.5 rounded-xl bg-sky2">
+              <div class="w-10 h-10 rounded-[10px] bg-[#DCEAFF] flex items-center justify-center shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"></path></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-navy">Plain-language summary</div>
+                <div class="text-[15px] text-[#4A5A70]">Your business's financial health, explained</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it matters -->
+    <section id="why" class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
+        <div class="max-w-2xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Why proper bookkeeping matters</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Your books are the dashboard of your business</h2>
+          <p class="text-xl text-muted">
+            Most owners don't start a business to do bookkeeping — but every decision you make runs on those numbers. When the books are current, you can see trouble coming, plan with confidence and walk into tax season calm.
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyCards.map((card) => (
+            <div class="bg-sky2 rounded-[18px] p-7 flex flex-col gap-3">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d={card.icon}></path></svg>
+              <h3 class="font-heading text-xl text-navy">{card.title}</h3>
+              <p class="text-muted">{card.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Washington callout -->
+    <section class="bg-navy text-white">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-18 flex flex-wrap gap-10 items-center">
+        <div class="flex-1 min-w-[320px] flex flex-col gap-3.5">
+          <div class="text-[#8EC2FF] font-bold text-sm tracking-widest uppercase">Bookkeeping the Washington way</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight">No state income tax doesn't mean no state taxes</h2>
+          <p class="text-lg text-[#D6E4F5]">
+            Washington businesses report to the Department of Revenue on gross receipts, not profit — so your books need to track revenue the way the state sees it.
+          </p>
+        </div>
+        <div class="flex-1 min-w-[320px] grid gap-4 sm:grid-cols-2">
+          {waCards.map((card) => (
+            <div class="bg-white/[0.08] border border-white/[0.18] rounded-2xl p-[22px]">
+              <div class="font-heading font-bold text-lg mb-1.5">{card.title}</div>
+              <div class="text-[#D6E4F5] text-base">{card.body}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
+        <div class="max-w-2xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">What we do</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Everything your books need, handled every month</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <div class="bg-white rounded-[18px] p-7 flex gap-[18px]">
+              <div class="shrink-0 w-12 h-12 rounded-xl bg-accent text-white font-heading font-extrabold text-xl flex items-center justify-center">{s.num}</div>
+              <div>
+                <h3 class="font-heading text-xl text-navy mb-1.5">{s.title}</h3>
+                <p class="text-muted">{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="bg-white rounded-[18px] px-8 py-7 flex flex-wrap gap-4 items-center justify-between border-2 border-dashed border-[#9CC3F5]">
+          <div class="flex-1 min-w-[320px]">
+            <div class="font-heading font-bold text-xl text-navy">Behind on your books?</div>
+            <div class="text-muted">Catch-up and cleanup projects get you current — then monthly service keeps you there.</div>
+          </div>
+          <a href={bookingURL} class="bg-navy text-white no-underline font-bold px-6 py-3.5 rounded-full hover:bg-accent transition-colors">Talk about catch-up</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-wrap gap-12 items-start">
+        <div class="flex-1 min-w-[320px] flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Is this right for you?</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[40px] leading-tight text-navy">Built for owners who'd rather run the business</h2>
+          <p class="text-lg text-muted">Sole proprietors and small businesses with 1–25 employees across Washington — and remotely anywhere in the U.S.</p>
+        </div>
+        <div class="flex-[1.4] min-w-[320px] flex flex-col gap-3.5">
+          {whoFor.map((item) => (
+            <div class="flex gap-4 items-start px-[22px] py-[18px] rounded-2xl bg-sky2">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F7A55" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
+        <div class="max-w-2xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">How it works</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Four simple steps to books you can trust</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step) => (
+            <div class="bg-white rounded-[18px] p-7 flex flex-col gap-2.5">
+              <div class="font-heading font-extrabold text-[44px] text-accent leading-none">{step.num}</div>
+              <h3 class="font-heading text-xl text-navy">{step.title}</h3>
+              <p class="text-muted">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn -->
+    <section id="learn" class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
+        <div class="flex flex-wrap gap-4 justify-between items-end">
+          <div class="max-w-xl flex flex-col gap-4">
+            <div class="text-accent font-bold text-sm tracking-widest uppercase">Learning center</div>
+            <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Bookkeeping basics every owner should know</h2>
+          </div>
+          <a href="https://b2bsolutions.biz/blog" class="font-bold text-lg text-accent no-underline hover:text-navy">All Tuesday Bookkeeping tips &rarr;</a>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="https://b2bsolutions.biz/blog/5-bookkeeping-mistakes-small-businesses-make" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+            <div class="h-40 bg-[#FFE9C7] flex items-center justify-center">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#B05A00" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 16H3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
+            </div>
+            <div class="p-6 flex flex-col gap-2">
+              <div class="text-sm font-bold text-[#B05A00] uppercase tracking-wide">Guide</div>
+              <h3 class="font-heading text-xl text-navy">5 bookkeeping mistakes small businesses make</h3>
+              <p class="text-muted">The common slip-ups that cost owners time and money — and how to avoid them.</p>
+            </div>
+          </a>
+          <a href="https://b2bsolutions.biz/blog/bookkeeping-vs-accounting-small-business" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+            <div class="h-40 bg-[#DCEAFF] flex items-center justify-center">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"></rect><rect x="14" y="4" width="7" height="16" rx="1.5"></rect></svg>
+            </div>
+            <div class="p-6 flex flex-col gap-2">
+              <div class="text-sm font-bold text-accent uppercase tracking-wide">Explainer</div>
+              <h3 class="font-heading text-xl text-navy">Bookkeeping vs. accounting</h3>
+              <p class="text-muted">Who does what, and which one your small business actually needs.</p>
+            </div>
+          </a>
+          <a href="#glossary" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+            <div class="h-40 bg-[#D9F3E8] flex items-center justify-center">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0F7A55" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"></path><path d="M8 7h6"></path><path d="M8 11h6"></path></svg>
+            </div>
+            <div class="p-6 flex flex-col gap-2">
+              <div class="text-sm font-bold text-success uppercase tracking-wide">Glossary</div>
+              <h3 class="font-heading text-xl text-navy">Speak your books' language</h3>
+              <p class="text-muted">Short, plain definitions of the terms on your monthly reports.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Glossary -->
+        <div id="glossary" class="bg-sky2 rounded-[20px] p-8 md:p-10 flex flex-col gap-6">
+          <h3 class="font-heading font-extrabold text-2xl text-navy">Quick glossary</h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {glossary.map((g) => (
+              <div>
+                <div class="font-heading font-bold text-navy text-lg">{g.term}</div>
+                <div class="text-muted">{g.def}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-sky">
+      <div class="max-w-3xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-8">
+        <div class="flex flex-col gap-4 text-center">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Questions</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Frequently asked questions</h2>
+        </div>
+        <div class="flex flex-col gap-3.5">
+          {faqs.map((f) => (
+            <div class="bg-white rounded-2xl px-7 py-6">
+              <h3 class="font-heading text-xl text-navy mb-2">{f.q}</h3>
+              <p class="text-muted">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Service areas -->
+    <section class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 flex flex-wrap gap-10 items-center">
+        <div class="flex-1 min-w-[320px] flex flex-col gap-3.5">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Local roots, statewide reach</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight text-navy">Based in Rochester, serving all of Washington</h2>
+          <p class="text-muted text-lg">Meet in person across Thurston and Lewis counties, or work with us remotely from anywhere in the state.</p>
+        </div>
+        <div class="flex-[1.3] min-w-[320px] flex flex-wrap gap-2.5">
+          {serviceAreas.map((city) => (
+            <span class="px-[18px] py-2.5 rounded-full bg-sky text-navy font-semibold">{city}</span>
+          ))}
+          <span class="px-[18px] py-2.5 rounded-full bg-navy text-white font-semibold">+ remote statewide</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-accent text-white">
+      <div class="max-w-4xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-5 items-center text-center">
+        <h2 class="font-heading font-extrabold text-3xl md:text-[46px] leading-tight">Ready for books you don't have to worry about?</h2>
+        <p class="text-xl text-[#EAF3FF] max-w-xl">Schedule a free consultation and we'll talk through where your books are today and what it takes to get them clean and current.</p>
+        <div class="flex flex-wrap gap-3.5 justify-center">
+          <a href={bookingURL} class="bg-white text-navy no-underline font-bold px-8 py-4 rounded-full text-lg hover:bg-sky2 transition-colors">Book a free consultation</a>
+          <a href="tel:3605292672" class="bg-transparent text-white no-underline font-bold px-8 py-4 rounded-full text-lg border-2 border-white hover:bg-white/10 transition-colors">Call 360-529-2672</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
