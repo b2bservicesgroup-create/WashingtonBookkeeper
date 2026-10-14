@@ -13,7 +13,7 @@ const {
 
 const siteURL = 'https://washingtonbookkeeper.com';
 const canonicalURL = new URL(Astro.url.pathname, siteURL).href;
-const ogImageURL = new URL('/logo/b2b-logo-768w.png', siteURL).href;
+const ogImageURL = new URL('/og-image.png', siteURL).href; // 1200x630, logo kept inside the center square
 const fullTitle = `${title} | WashingtonBookkeeper.com`;
 
 const accountingServiceSchema = {
@@ -66,14 +66,20 @@ const accountingServiceSchema = {
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:secure_url" content={ogImageURL} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="B2B Solutions logo — WashingtonBookkeeper.com" />
     <meta property="og:site_name" content="WashingtonBookkeeper.com" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image:alt" content="B2B Solutions logo — WashingtonBookkeeper.com" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
