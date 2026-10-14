@@ -41,7 +41,7 @@ export const plans: Plan[] = [
     tagline: 'Busy businesses with several accounts',
     features: [
       '4+ bank accounts and 3+ cards, loans or lines of credit',
-      'Biweekly payroll for up to 5 employees',
+      'Biweekly payroll for up to 5 employees*',
       'Quarterly review call',
       'Everything in Standard',
     ],
@@ -53,7 +53,7 @@ export const plans: Plan[] = [
     tagline: 'We run your invoicing and bills, too',
     featured: true,
     features: [
-      'Everything in Advanced, including payroll',
+      'Everything in Advanced, including payroll*',
       'Customer invoicing and past-due follow-up',
       'Vendor bills entered and scheduled for your approval',
       'Monthly accounts receivable and payable aging reports',
@@ -66,6 +66,12 @@ export const customPlan = {
   body: "Very high volume, multiple entities, inventory or special reporting? We'll scope the work and quote one flat monthly fee.",
 };
 
+// Payroll disclosure shown under the plan cards on the homepage and /pricing.
+export const payrollDisclosure = {
+  partnerName: 'Cascade Payroll',
+  partnerURL: 'https://www.cascade-payroll.com',
+};
+
 export const everyPlanIncludes = [
   'Transaction categorization and monthly reconciliation',
   'Monthly profit & loss and balance sheet',
@@ -74,6 +80,7 @@ export const everyPlanIncludes = [
 ];
 
 export const addOns = [
+  { name: 'Payroll provider fees (Cascade Payroll or Gusto)', fee: 'Paid to provider' },
   { name: 'Payroll for 6 or more employees', fee: 'HR/Payroll package' },
   { name: 'Catch-up or cleanup bookkeeping', fee: 'Quoted per project' },
   { name: 'Sales tax filing', fee: 'Quoted' },

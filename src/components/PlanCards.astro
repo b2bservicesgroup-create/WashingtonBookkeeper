@@ -1,5 +1,5 @@
 ---
-import { plans, customPlan, formatPrice } from '../data/pricing';
+import { plans, customPlan, formatPrice, payrollDisclosure } from '../data/pricing';
 
 interface Props {
   bookingURL: string;
@@ -66,3 +66,10 @@ const { bookingURL, compact = false } = Astro.props;
   </div>
   <a href={bookingURL} class="bg-navy text-white no-underline font-bold px-6 py-3.5 rounded-full hover:bg-accent transition-colors">Request a quote</a>
 </div>
+
+<p id="payroll-disclosure" class="mt-5 text-[15px] leading-relaxed text-muted max-w-4xl">
+  <span class="font-semibold text-navy">*Payroll disclosure:</span>
+  We administer payroll through our partner,
+  <a href={payrollDisclosure.partnerURL} class="text-accent font-semibold" rel="noopener" target="_blank">Cascade Payroll</a>,
+  and also support Gusto. We do not administer QuickBooks Payroll. Payroll provider service fees are in addition to our bookkeeping rates and are paid separately to the provider.
+</p>
