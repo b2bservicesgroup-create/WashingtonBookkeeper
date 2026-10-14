@@ -1,0 +1,68 @@
+---
+import { plans, customPlan, formatPrice } from '../data/pricing';
+
+interface Props {
+  bookingURL: string;
+  compact?: boolean; // homepage preview: show taglines + first 2 features only
+}
+
+const { bookingURL, compact = false } = Astro.props;
+---
+
+<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  {plans.map((plan) => (
+    <div
+      class:list={[
+        'rounded-[18px] p-7 flex flex-col gap-5',
+        plan.featured ? 'bg-navy text-white shadow-[0_20px_50px_rgba(11,37,69,0.18)]' : 'bg-white border border-[#E3ECF7]',
+      ]}
+    >
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class:list={['font-heading font-bold text-sm tracking-widest uppercase', plan.featured ? 'text-[#8EC2FF]' : 'text-accent']}>
+            {plan.name}
+          </h3>
+          {plan.featured && (
+            <span class="text-xs font-bold uppercase tracking-wide bg-white text-navy px-2.5 py-1 rounded-full">Full service</span>
+          )}
+        </div>
+        <div class="flex items-baseline gap-1.5 whitespace-nowrap">
+          <span class:list={['font-heading font-extrabold text-[38px] leading-none', plan.featured ? 'text-white' : 'text-navy']}>
+            {plan.price !== null ? formatPrice(plan.price) : 'Quoted'}
+          </span>
+          <span class:list={['text-base', plan.featured ? 'text-[#D6E4F5]' : 'text-muted']}>/ month</span>
+        </div>
+        <p class:list={['text-base', plan.featured ? 'text-[#D6E4F5]' : 'text-muted']}>{plan.tagline}</p>
+      </div>
+
+      <ul class:list={['flex flex-col gap-2.5 pt-5 border-t text-base list-none p-0 m-0', plan.featured ? 'border-white/20' : 'border-[#E3ECF7]']}>
+        {(compact ? plan.features.slice(0, 2) : plan.features).map((f) => (
+          <li class="flex gap-2.5 items-start">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={plan.featured ? '#8EC2FF' : '#0F7A55'} stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+
+      {!compact && (
+        <a
+          href={bookingURL}
+          class:list={[
+            'mt-auto text-center no-underline font-bold px-5 py-3 rounded-full transition-colors',
+            plan.featured ? 'bg-white text-navy hover:bg-sky2' : 'bg-accent text-white hover:bg-navy',
+          ]}
+        >
+          Get started
+        </a>
+      )}
+    </div>
+  ))}
+</div>
+
+<div class="mt-5 bg-white rounded-[18px] px-8 py-6 flex flex-wrap gap-4 items-center justify-between border-2 border-dashed border-[#9CC3F5]">
+  <div class="flex-1 min-w-[280px]">
+    <div class="font-heading font-bold text-xl text-navy">{customPlan.name} plan</div>
+    <div class="text-muted">{customPlan.body}</div>
+  </div>
+  <a href={bookingURL} class="bg-navy text-white no-underline font-bold px-6 py-3.5 rounded-full hover:bg-accent transition-colors">Request a quote</a>
+</div>

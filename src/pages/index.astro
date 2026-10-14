@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PlanCards from '../components/PlanCards.astro';
 
 const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
 
@@ -73,6 +74,7 @@ const faqs = [
   { q: 'What accounting software do you use?', a: 'QuickBooks Online, Wave, Xero and FreshBooks. We can work in what you have or help you choose and set up the right platform.' },
   { q: 'How do you access our financial accounts?', a: 'Through secure, read-only accounting integrations. We never have direct access to move or transfer funds.' },
   { q: 'How often will I get reports?', a: "Monthly: a balance sheet, profit & loss statement and a brief summary. Need more often? We'll set that up during onboarding." },
+  { q: 'How much does bookkeeping cost?', a: 'Flat monthly plans start at $250 for simple businesses, with Standard at $500, Advanced at $750 and Complete at $1,000. See the pricing page for what each plan includes.' },
 ];
 
 const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 'Chehalis', 'Yelm', 'Tenino'];
@@ -258,8 +260,23 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
       </div>
     </section>
 
+    <!-- Pricing preview -->
+    <section id="pricing" class="bg-white scroll-mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
+        <div class="flex flex-wrap gap-4 justify-between items-end">
+          <div class="max-w-2xl flex flex-col gap-4">
+            <div class="text-accent font-bold text-sm tracking-widest uppercase">Pricing</div>
+            <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">One flat monthly fee, no hourly surprises</h2>
+            <p class="text-xl text-muted">Plans are based on how many accounts you run and whether you want us to handle invoicing and bills.</p>
+          </div>
+          <a href="/pricing" class="font-bold text-lg text-accent no-underline hover:text-navy">Compare all plans &rarr;</a>
+        </div>
+        <PlanCards bookingURL={bookingURL} compact />
+      </div>
+    </section>
+
     <!-- Learn -->
-    <section id="learn" class="bg-white">
+    <section id="learn" class="bg-sky">
       <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-12">
         <div class="flex flex-wrap gap-4 justify-between items-end">
           <div class="max-w-xl flex flex-col gap-4">
@@ -269,7 +286,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
           <a href="https://b2bsolutions.biz/blog" class="font-bold text-lg text-accent no-underline hover:text-navy">All Tuesday Bookkeeping tips &rarr;</a>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <a href="https://b2bsolutions.biz/blog/5-bookkeeping-mistakes-small-businesses-make" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+          <a href="https://b2bsolutions.biz/blog/5-bookkeeping-mistakes-small-businesses-make" class="no-underline text-ink bg-white border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
             <div class="h-40 bg-[#FFE9C7] flex items-center justify-center">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#B05A00" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 16H3z"></path><path d="M12 10v4"></path><path d="M12 17h.01"></path></svg>
             </div>
@@ -279,7 +296,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
               <p class="text-muted">The common slip-ups that cost owners time and money — and how to avoid them.</p>
             </div>
           </a>
-          <a href="https://b2bsolutions.biz/blog/bookkeeping-vs-accounting-small-business" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+          <a href="https://b2bsolutions.biz/blog/bookkeeping-vs-accounting-small-business" class="no-underline text-ink bg-white border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
             <div class="h-40 bg-[#DCEAFF] flex items-center justify-center">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#1660D0" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"></rect><rect x="14" y="4" width="7" height="16" rx="1.5"></rect></svg>
             </div>
@@ -289,7 +306,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
               <p class="text-muted">Who does what, and which one your small business actually needs.</p>
             </div>
           </a>
-          <a href="#glossary" class="no-underline text-ink border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
+          <a href="#glossary" class="no-underline text-ink bg-white border border-[#E3ECF7] rounded-[18px] overflow-hidden flex flex-col">
             <div class="h-40 bg-[#D9F3E8] flex items-center justify-center">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#0F7A55" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"></path><path d="M8 7h6"></path><path d="M8 11h6"></path></svg>
             </div>
@@ -302,7 +319,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
         </div>
 
         <!-- Glossary -->
-        <div id="glossary" class="bg-sky2 rounded-[20px] p-8 md:p-10 flex flex-col gap-6">
+        <div id="glossary" class="bg-white rounded-[20px] p-8 md:p-10 flex flex-col gap-6">
           <h3 class="font-heading font-extrabold text-2xl text-navy">Quick glossary</h3>
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {glossary.map((g) => (
@@ -317,7 +334,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="bg-sky">
+    <section id="faq" class="bg-white">
       <div class="max-w-3xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-8">
         <div class="flex flex-col gap-4 text-center">
           <div class="text-accent font-bold text-sm tracking-widest uppercase">Questions</div>
@@ -325,7 +342,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
         </div>
         <div class="flex flex-col gap-3.5">
           {faqs.map((f) => (
-            <div class="bg-white rounded-2xl px-7 py-6">
+            <div class="bg-sky2 rounded-2xl px-7 py-6">
               <h3 class="font-heading text-xl text-navy mb-2">{f.q}</h3>
               <p class="text-muted">{f.a}</p>
             </div>
@@ -335,7 +352,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
     </section>
 
     <!-- Service areas -->
-    <section class="bg-white">
+    <section class="bg-sky">
       <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 flex flex-wrap gap-10 items-center">
         <div class="flex-1 min-w-[320px] flex flex-col gap-3.5">
           <div class="text-accent font-bold text-sm tracking-widest uppercase">Local roots, statewide reach</div>
@@ -344,7 +361,7 @@ const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 
         </div>
         <div class="flex-[1.3] min-w-[320px] flex flex-wrap gap-2.5">
           {serviceAreas.map((city) => (
-            <span class="px-[18px] py-2.5 rounded-full bg-sky text-navy font-semibold">{city}</span>
+            <span class="px-[18px] py-2.5 rounded-full bg-white text-navy font-semibold">{city}</span>
           ))}
           <span class="px-[18px] py-2.5 rounded-full bg-navy text-white font-semibold">+ remote statewide</span>
         </div>

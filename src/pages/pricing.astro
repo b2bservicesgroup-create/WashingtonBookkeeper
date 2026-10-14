@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PlanCards from '../components/PlanCards.astro';
+import { plans, everyPlanIncludes, addOns } from '../data/pricing';
+
+const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
+
+const pricingFaqs = [
+  {
+    q: 'How do I know which plan fits my business?',
+    a: "It depends mostly on how many bank accounts, credit cards and loans you have, and whether you want us to handle invoicing and bills. On a free consultation we'll look at your accounts and recommend the plan that fits.",
+  },
+  {
+    q: 'Is payroll included?',
+    a: 'Advanced and Complete include biweekly payroll for up to 5 employees. Businesses with 6 or more employees use our HR/Payroll package for payroll.',
+  },
+  {
+    q: 'What if my business grows?',
+    a: "We review your plan every quarter. If you add accounts or activity that moves you into a different plan, we'll tell you before your fee changes.",
+  },
+  {
+    q: "What if I'm behind on my books?",
+    a: "Catch-up and cleanup work is quoted as a one-time project to get you current. After that, your monthly plan keeps you there.",
+  },
+  {
+    q: 'How is billing handled?',
+    a: 'Plans are billed monthly in advance at one flat fee, so you always know what bookkeeping will cost.',
+  },
+];
+
+const offerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'Monthly bookkeeping plans',
+  itemListElement: plans
+    .filter((p) => p.price !== null)
+    .map((p) => ({
+      '@type': 'Offer',
+      name: `${p.name} bookkeeping plan`,
+      description: p.tagline,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: p.price,
+        priceCurrency: 'USD',
+        unitText: 'MONTH',
+      },
+    })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: pricingFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="Bookkeeping Pricing"
+  description="Flat monthly bookkeeping plans for Washington small businesses: Essentials $250, Standard $500, Advanced $750 and Complete $1,000, plus custom plans."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(offerSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main>
+    <!-- Intro -->
+    <section class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 pt-20 pb-12 md:pt-24 flex flex-col gap-4">
+        <div class="max-w-3xl flex flex-col gap-4">
+        <div class="text-accent font-bold text-sm tracking-widest uppercase">Pricing</div>
+        <h1 class="font-heading font-extrabold text-[40px] md:text-[56px] leading-[1.05] text-navy tracking-tight">
+          Clean books, one flat <span class="text-accent">monthly fee.</span>
+        </h1>
+        <p class="text-muted text-xl">
+          Pick the plan that matches how many accounts you run. No hourly billing, no surprises. Each plan includes everything in the plans before it.
+        </p>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-6 pb-20 md:pb-24">
+        <PlanCards bookingURL={bookingURL} />
+      </div>
+    </section>
+
+    <!-- Included + add-ons -->
+    <section class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 grid gap-12 lg:grid-cols-2">
+        <div class="flex flex-col gap-5">
+          <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight text-navy">Every plan includes</h2>
+          <ul class="flex flex-col gap-3.5 list-none p-0 m-0">
+            {everyPlanIncludes.map((item) => (
+              <li class="flex gap-4 items-start px-[22px] py-[18px] rounded-2xl bg-sky2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F7A55" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight text-navy">Add-on services</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full border-collapse text-left">
+              <thead>
+                <tr class="border-b-2 border-navy">
+                  <th scope="col" class="py-3 text-sm font-bold uppercase tracking-wide text-muted">Service</th>
+                  <th scope="col" class="py-3 text-sm font-bold uppercase tracking-wide text-muted text-right">Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                {addOns.map((a) => (
+                  <tr class="border-b border-[#E3ECF7]">
+                    <td class="py-4 pr-4">{a.name}</td>
+                    <td class="py-4 text-right font-semibold text-navy whitespace-nowrap">{a.fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="text-muted text-base">
+            Need full HR support or a larger payroll? See our <a href="https://b2bsolutions.biz/solutions/payroll-administration" class="text-accent font-semibold">payroll administration</a> and <a href="https://b2bsolutions.biz/solutions/hr-solutions" class="text-accent font-semibold">HR solutions</a> at B2B Solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing FAQ -->
+    <section class="bg-sky">
+      <div class="max-w-3xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-8">
+        <div class="flex flex-col gap-4 text-center">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Pricing questions</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">What owners ask before signing up</h2>
+        </div>
+        <div class="flex flex-col gap-3.5">
+          {pricingFaqs.map((f) => (
+            <div class="bg-white rounded-2xl px-7 py-6">
+              <h3 class="font-heading text-xl text-navy mb-2">{f.q}</h3>
+              <p class="text-muted">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-accent text-white">
+      <div class="max-w-4xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-5 items-center text-center">
+        <h2 class="font-heading font-extrabold text-3xl md:text-[46px] leading-tight">Not sure which plan fits?</h2>
+        <p class="text-xl text-[#EAF3FF] max-w-xl">Book a free consultation. We'll look at your accounts and recommend the right plan — no pressure.</p>
+        <div class="flex flex-wrap gap-3.5 justify-center">
+          <a href={bookingURL} class="bg-white text-navy no-underline font-bold px-8 py-4 rounded-full text-lg hover:bg-sky2 transition-colors">Book a free consultation</a>
+          <a href="tel:3605292672" class="bg-transparent text-white no-underline font-bold px-8 py-4 rounded-full text-lg border-2 border-white hover:bg-white/10 transition-colors">Call 360-529-2672</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
