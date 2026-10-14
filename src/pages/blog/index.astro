@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
+---
+
+<Layout
+  title="Bookkeeping Blog"
+  description="Practical bookkeeping guides for Washington small business owners: cleanup, reconciliation, B&O and sales tax records, and keeping your books current."
+>
+  <Header />
+
+  <main>
+    <section class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 pt-20 pb-14 md:pt-24 flex flex-col gap-4">
+        <div class="max-w-3xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Blog</div>
+          <h1 class="font-heading font-extrabold text-[40px] md:text-[56px] leading-[1.05] text-navy tracking-tight">
+            Bookkeeping, explained for <span class="text-accent">Washington owners.</span>
+          </h1>
+          <p class="text-muted text-xl">
+            Plain-language guides to keeping your books clean, current and ready for tax season.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 flex flex-col gap-10">
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="no-underline text-ink bg-white border border-[#E3ECF7] rounded-[18px] p-7 flex flex-col gap-3 hover:border-accent hover:shadow-[0_12px_30px_rgba(11,37,69,0.08)] transition"
+            >
+              <div class="flex items-center gap-3 text-sm">
+                <span class="font-bold text-accent uppercase tracking-wide">{post.data.category}</span>
+                <span class="text-muted">·</span>
+                <time datetime={post.data.pubDate.toISOString()} class="text-muted">{fmt(post.data.pubDate)}</time>
+              </div>
+              <h2 class="font-heading font-bold text-2xl leading-snug text-navy">{post.data.title}</h2>
+              <p class="text-muted">{post.data.description}</p>
+              <span class="mt-auto pt-2 font-bold text-accent">Read the guide &rarr;</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="bg-sky2 rounded-[18px] px-8 py-7 flex flex-wrap gap-4 items-center justify-between">
+          <div class="flex-1 min-w-[280px]">
+            <div class="font-heading font-bold text-xl text-navy">More weekly tips</div>
+            <div class="text-muted">Our Tuesday Bookkeeping series covers small business bookkeeping basics every week.</div>
+          </div>
+          <a href="https://b2bsolutions.biz/blog" class="bg-navy text-white no-underline font-bold px-6 py-3.5 rounded-full hover:bg-accent transition-colors">Tuesday Bookkeeping &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-accent text-white">
+      <div class="max-w-4xl mx-auto px-6 py-16 md:py-20 flex flex-col gap-5 items-center text-center">
+        <h2 class="font-heading font-extrabold text-3xl md:text-[40px] leading-tight">Rather have us handle it?</h2>
+        <p class="text-xl text-[#EAF3FF] max-w-xl">Book a free consultation and we'll talk through where your books are today.</p>
+        <a href={bookingURL} class="bg-white text-navy no-underline font-bold px-8 py-4 rounded-full text-lg hover:bg-sky2 transition-colors">Book a free consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
