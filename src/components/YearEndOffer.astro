@@ -1,0 +1,76 @@
+---
+// Year-end 2026 promotion banner.
+// Hides itself automatically after the offer ends (checked at build time AND in the browser,
+// so it disappears on Jan 1 even if the site isn't rebuilt).
+interface Props {
+  bookingURL: string;
+}
+
+const { bookingURL } = Astro.props;
+const OFFER_ENDS = '2027-01-01T00:00:00-08:00'; // first moment the offer is no longer valid (Pacific)
+const expired = new Date() >= new Date(OFFER_ENDS);
+---
+
+{!expired && (
+  <section id="offer" class="bg-white scroll-mt-24" data-offer-ends={OFFER_ENDS}>
+    <div class="max-w-6xl mx-auto px-6 py-12 md:py-14">
+      <div class="relative overflow-hidden rounded-[24px] bg-navy text-white shadow-[0_20px_50px_rgba(0,64,120,0.25)]">
+        <!-- decorative rings -->
+        <svg class="absolute -right-24 -top-24 w-[420px] h-[420px] opacity-[0.10] pointer-events-none" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <circle cx="100" cy="100" r="96" stroke="white" stroke-width="2"></circle>
+          <circle cx="100" cy="100" r="72" stroke="white" stroke-width="2"></circle>
+          <circle cx="100" cy="100" r="48" stroke="white" stroke-width="2"></circle>
+        </svg>
+
+        <div class="relative flex flex-wrap items-center gap-10 px-8 py-10 md:px-14 md:py-12">
+          <!-- 20% badge -->
+          <div class="shrink-0 mx-auto md:mx-0 w-[190px] h-[190px] md:w-[220px] md:h-[220px] rounded-full bg-white text-navy flex flex-col items-center justify-center text-center ring-[10px] ring-white/20">
+            <div class="font-heading font-extrabold text-[64px] md:text-[76px] leading-none tracking-tight">20%</div>
+            <div class="font-heading font-extrabold text-2xl md:text-[28px] leading-none tracking-[0.2em] mt-1">OFF</div>
+          </div>
+
+          <!-- copy -->
+          <div class="flex-1 min-w-[280px] flex flex-col gap-4">
+            <div class="self-start bg-white/[0.12] border border-white/25 text-white font-semibold text-xs sm:text-sm tracking-wider sm:tracking-widest uppercase whitespace-nowrap px-4 py-1.5 rounded-full">
+              Year-end offer &middot; Ends Dec&nbsp;31
+            </div>
+            <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-[1.1] tracking-tight">
+              Start 2027 with clean books.
+            </h2>
+            <p class="text-lg md:text-xl text-[#D6E4F5] max-w-xl">
+              New Washington clients who sign up before December 31 get <strong class="text-white">20% off</strong>:
+            </p>
+            <ul class="flex flex-col gap-2 text-lg">
+              <li class="flex gap-3 items-start">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8EC2FF" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+                <span>Bookkeeping catch-up &amp; cleanup</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8EC2FF" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+                <span>Your first 6 months of monthly bookkeeping</span>
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-3.5 pt-2">
+              <a href={bookingURL} class="bg-white text-navy no-underline font-bold px-7 py-4 rounded-full text-lg hover:bg-sky transition-colors">
+                Claim the offer
+              </a>
+              <a href="tel:3605292672" class="bg-transparent text-white no-underline font-bold px-7 py-4 rounded-full text-lg border-2 border-white hover:bg-white/10 transition-colors">
+                Call 360-529-2672
+              </a>
+            </div>
+            <p class="text-sm text-[#A9C3E0]">
+              For new clients. Plans from $250/month. Offer valid for sign-ups through December 31, 2026.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+  (function () {
+    var el = document.getElementById('offer');
+    if (el && new Date() >= new Date(el.dataset.offerEnds)) el.remove();
+  })();
+</script>

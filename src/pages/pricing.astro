@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PlanCards from '../components/PlanCards.astro';
+import YearEndOffer from '../components/YearEndOffer.astro';
 import { plans, everyPlanIncludes, addOns } from '../data/pricing';
 
 const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
@@ -87,6 +88,8 @@ const faqSchema = {
         <PlanCards bookingURL={bookingURL} />
       </div>
     </section>
+
+    <YearEndOffer bookingURL={bookingURL} />
 
     <!-- Included + add-ons -->
     <section class="bg-white">
