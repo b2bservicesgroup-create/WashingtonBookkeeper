@@ -1,5 +1,6 @@
 ---
 title: "Tuesday Bookkeeping: Why Reconciliation Matters More Than You Think"
+seoTitle: "Bank Reconciliation: Why It Matters and How Often to Do It"
 description: "Bank reconciliation is how you know your books are right. Here's what it catches, why it matters for Washington small businesses, and how often to do it."
 pubDate: 2026-10-20
 category: Tuesday Bookkeeping

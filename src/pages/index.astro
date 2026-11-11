@@ -79,9 +79,23 @@ const faqs = [
 ];
 
 const serviceAreas = ['Olympia', 'Lacey', 'Tumwater', 'Rochester', 'Centralia', 'Chehalis', 'Yelm', 'Tenino'];
+
+// Tells Google which name to show above our results (the "site name").
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Washington Bookkeeper',
+  alternateName: ['WashingtonBookkeeper.com', 'B2B Solutions'],
+  url: 'https://washingtonbookkeeper.com',
+};
 ---
 
-<Layout title="Washington Small Business Bookkeeping">
+<Layout
+  title="Washington Small Business Bookkeeping"
+  fullTitle="Small Business Bookkeeping in Washington | From $250/mo"
+  description="Flat-rate bookkeeping for Washington small businesses: monthly reconciliation, financial statements and catch-up work from a Rochester, WA team. Free consultation."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   <Header />
 
   <main>

@@ -1,5 +1,6 @@
 ---
 title: "Bookkeeping Cleanup: What We Do and Why It Matters"
+seoTitle: "Bookkeeping Cleanup: What It Includes & Why It Matters"
 description: "Behind on your books? Here's exactly what a bookkeeping cleanup involves, step by step, and why getting current matters for Washington small businesses."
 pubDate: 2026-10-14
 category: Guide

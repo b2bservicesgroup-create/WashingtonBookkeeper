@@ -43,7 +43,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={page.title} description={page.metaDescription}>
+<Layout title={page.title} fullTitle={page.seoTitle} description={page.metaDescription}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
