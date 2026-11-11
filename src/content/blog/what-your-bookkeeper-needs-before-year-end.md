@@ -1,6 +1,7 @@
 ---
 title: "Tuesday Bookkeeping: What Your Bookkeeper Needs From You Before Year-End"
-description: "Your bookkeeper can only close the year with what you give them. Here's what to gather and send before December 31 so your books, and your taxes, are done right."
+seoTitle: "Year-End Bookkeeping Checklist: What to Send Your Bookkeeper"
+description: "Your bookkeeper can only close the year with what you give them. Here's the year-end checklist of what to send before December 31 so your taxes go smoothly."
 pubDate: 2026-11-10
 category: Tuesday Bookkeeping
 author: B2B Solutions

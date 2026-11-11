@@ -4,3 +4,21 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# ── One address per page ──────────────────────────────────────────────
+# Send www and plain-http variants to the main https://washingtonbookkeeper.com address.
+[[redirects]]
+  from = "https://www.washingtonbookkeeper.com/*"
+  to = "https://washingtonbookkeeper.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.washingtonbookkeeper.com/*"
+  to = "https://washingtonbookkeeper.com/:splat"
+  status = 301
+  force = true
+
+# Trailing slashes (/pricing/ -> /pricing) are handled by the edge function in
+# netlify/edge-functions/trailing-slash.ts, because Netlify redirect rules
+# treat /pricing and /pricing/ as the same path and would loop.

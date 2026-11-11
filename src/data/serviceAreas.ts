@@ -8,6 +8,8 @@ export interface CityPage {
   county: string;
   inPerson: boolean;
   title: string;
+  /** Optional <title> written for search results; falls back to `title`. */
+  seoTitle?: string;
   metaDescription: string;
   eyebrow: string;
   h1: string;
@@ -25,8 +27,9 @@ export const cityPages: CityPage[] = [
     county: 'Thurston County',
     inPerson: true,
     title: 'Bookkeeper in Olympia, WA',
+    seoTitle: 'Olympia, WA Bookkeeper | Flat Monthly Plans from $250',
     metaDescription:
-      'Monthly bookkeeping for Olympia small businesses — revenue tracked by city for Olympia, Lacey and Tumwater B&O returns, clean receivables and statements. In person from Rochester.',
+      'Local Olympia bookkeeper: monthly books, revenue split for Olympia, Lacey and Tumwater B&O, clean receivables. Flat plans from $250. Meet in person.',
     eyebrow: 'Olympia bookkeeping',
     h1: 'Bookkeeping for Olympia businesses that file more than one B&O return',
     intro: [
@@ -87,8 +90,9 @@ export const cityPages: CityPage[] = [
     county: 'Pierce County',
     inPerson: false,
     title: 'Bookkeeping for Tacoma, WA Small Businesses',
+    seoTitle: 'Tacoma Bookkeeping Services | Flat Plans from $250/mo',
     metaDescription:
-      "Remote bookkeeping for Tacoma small businesses and landlords — revenue classified for Tacoma's city B&O tax, small business credit tracking and rental books.",
+      "Remote bookkeeping for Tacoma small businesses and landlords: revenue classified for Tacoma's city B&O tax, small business credit tracked, rental books. From $250/mo.",
     eyebrow: 'Tacoma bookkeeping',
     h1: 'Bookkeeping built around Tacoma’s city B&O tax',
     intro: [
@@ -150,7 +154,7 @@ export const cityPages: CityPage[] = [
     inPerson: true,
     title: 'Bookkeeper in Centralia, WA for Retail & Restaurants',
     metaDescription:
-      'Bookkeeping for Centralia, WA retailers, restaurants and hospitality — daily sales reconciled to deposits, sales tax tracked, seasonal cash flow planned. In person in Lewis County.',
+      'Centralia bookkeeper for retail and restaurants: daily sales matched to deposits, sales tax tracked, seasonal cash flow planned. Meet in person in Lewis County.',
     eyebrow: 'Centralia bookkeeping',
     h1: 'Bookkeeping for Centralia shops, restaurants and hospitality',
     intro: [
@@ -211,7 +215,7 @@ export const cityPages: CityPage[] = [
     inPerson: true,
     title: 'Bookkeeper in Chehalis, WA for Contractors',
     metaDescription:
-      'Bookkeeping for Chehalis, WA contractors and industrial businesses — job costing, sales tax by job site, retainage tracking and inventory. In person in Lewis County.',
+      'Chehalis bookkeeper for contractors: job costing, sales tax by job site, retainage and inventory tracked. Flat monthly plans from $250. Meet in person.',
     eyebrow: 'Chehalis bookkeeping',
     h1: 'Job-costed bookkeeping for Chehalis contractors',
     intro: [
@@ -273,7 +277,7 @@ export const cityPages: CityPage[] = [
     inPerson: true,
     title: 'Local Bookkeeper in Rochester, WA',
     metaDescription:
-      'WashingtonBookkeeper.com is based in Rochester, WA. Bookkeeping for local farms, home-based businesses and rental owners — wholesale and retail farm sales separated, personal and business split.',
+      'Rochester, WA bookkeeper for farms, home-based businesses and rental owners. Business and personal kept separate, farm sales sorted. Flat plans from $250.',
     eyebrow: 'Rochester bookkeeping',
     h1: 'Your bookkeeper is in Rochester',
     intro: [
