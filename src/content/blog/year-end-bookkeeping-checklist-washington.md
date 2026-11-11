@@ -67,7 +67,7 @@ Not sure which filing frequency you are? It's in the welcome letter the Departme
 
 Block one hour on your calendar this week just for steps 1 and 2. Reconciling and clearing out uncategorized transactions makes everything else on this list faster.
 
-## Behind on your books? Start 2027 clean.
+## Start 2027 with clean books
 
 If this checklist feels like more than an hour's work, you're not alone, and that's what we're here for. New Washington clients who sign up before December 31 get **20% off a [bookkeeping cleanup](/blog/bookkeeping-cleanup-what-we-do-and-why) and their first 6 months of [monthly bookkeeping](/pricing)**. We serve small businesses across Western Washington, in person and remotely.
 
