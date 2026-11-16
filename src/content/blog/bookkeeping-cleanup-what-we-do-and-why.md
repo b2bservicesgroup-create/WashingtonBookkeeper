@@ -96,7 +96,7 @@ Every month you wait adds another month to reconcile, and bank and card records 
 
 ## How cleanup pricing works
 
-Every cleanup is different. Three months behind with one bank account is a very different project from two years across six accounts. That's why we quote cleanup work as a one-time project after we've looked at your books, rather than guessing up front. Once you're current, our [monthly plans](/pricing) start at $250 a month.
+Every cleanup is different. Three months behind with one bank account is a very different project from two years across six accounts. That's why we quote [bookkeeping cleanup](/bookkeeping-cleanup) as a one-time project after we've looked at your books, rather than guessing up front. Once you're current, our [monthly plans](/pricing) start at $250 a month.
 
 ## Ready to get current?
 
