@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import YearEndOffer from '../components/YearEndOffer.astro';
+
+const bookingURL = 'https://b2bservicesgroup.zohobookings.com/#/b2bservicesgroup';
+
+const signs = [
+  "Your bank or credit card accounts haven't been reconciled in months",
+  "The balance in your accounting software doesn't match your bank",
+  'A big "Uncategorized" or "Ask My Accountant" balance keeps growing',
+  'Your tax preparer sent the books back with questions, or charged extra to fix them',
+  "You're not sure a loan, vehicle or equipment purchase was recorded correctly",
+  "You switched bookkeepers or software and things didn't carry over cleanly",
+];
+
+const included = [
+  { title: 'Catch-up entry', body: 'Every missing month of transactions recorded, from your bank, card and loan statements.' },
+  { title: 'Cleanup and recategorizing', body: 'Miscategorized expenses, duplicate bank-feed entries, owner draws and loan payments put where they belong.' },
+  { title: 'Chart of accounts tidy-up', body: 'Duplicate and catch-all categories consolidated so your profit & loss reads clearly.' },
+  { title: 'Month-by-month reconciliation', body: 'Every bank and credit card account matched to its statements until the balances agree exactly.' },
+  { title: 'Invoices and bills cleared', body: "Old invoices matched to deposits and paid bills cleared, so you know who really owes you and what you really owe." },
+  { title: 'Washington excise check', body: 'Revenue in your books compared to what you reported to the Department of Revenue for B&O and sales tax, with anything that doesn’t line up flagged.' },
+];
+
+const steps = [
+  { num: '01', title: 'Free look at your books', body: 'On a free consultation we look at your software, accounts and how far back things go, so the project is scoped before any work starts.' },
+  { num: '02', title: 'A flat project quote', body: 'You get one quote for the whole cleanup — not an open-ended hourly bill — plus a short list of anything we need from you.' },
+  { num: '03', title: 'We get you current', body: 'We catch up, clean up and reconcile every account. You get a clean profit & loss, balance sheet and a summary of what we fixed.' },
+  { num: '04', title: 'Stay current', body: 'Most clients move onto a flat monthly plan from $250 a month, and we record transactions throughout the month so you never fall behind again.' },
+];
+
+const faqs = [
+  {
+    q: 'How much does a bookkeeping cleanup cost?',
+    a: 'Cleanup is quoted per project after we’ve looked at your books, because three months behind on one bank account is a very different job from two years across six accounts. You get one flat quote before we start.',
+  },
+  {
+    q: 'How long does a cleanup take?',
+    a: 'It depends on how many months and accounts are involved and how quickly statements come in. We give you a timeline with your quote, and we start on the accounts we can access right away.',
+  },
+  {
+    q: 'What software do you work in?',
+    a: 'We clean up books in QuickBooks Online, Xero, Wave and FreshBooks. If you’re ready to move to QuickBooks Online, we can set it up as part of the project.',
+  },
+  {
+    q: 'Do I have to sign up for monthly bookkeeping afterward?',
+    a: 'No. A cleanup is a stand-alone project. Most owners choose a monthly plan afterward because it’s cheaper to stay current than to catch up again, but it’s your call.',
+  },
+  {
+    q: 'Can you work with my CPA or tax preparer?',
+    a: 'Yes. We can coordinate directly with your tax professional and hand them clean, reconciled statements for the cleanup period.',
+  },
+  {
+    q: 'Do you meet in person?',
+    a: 'Yes, in Olympia, Rochester, Centralia and Chehalis. We work with businesses across Western Washington remotely by phone, video and secure upload.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Bookkeeping cleanup and catch-up',
+  serviceType: 'Bookkeeping cleanup',
+  provider: {
+    '@type': 'AccountingService',
+    name: 'B2B Solutions',
+    url: 'https://washingtonbookkeeper.com',
+    telephone: '360-529-2672',
+  },
+  areaServed: { '@type': 'State', name: 'Washington' },
+  url: 'https://washingtonbookkeeper.com/bookkeeping-cleanup',
+  description: 'One-time bookkeeping cleanup and catch-up projects for Washington small businesses: missing transactions recorded, errors fixed and every account reconciled.',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="Bookkeeping Cleanup"
+  fullTitle="Bookkeeping Cleanup & Catch-Up Services in Washington"
+  description="Behind on your books? We clean up and catch up small business books for Washington owners: every account reconciled, errors fixed, one flat project quote."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Header />
+
+  <main>
+    <!-- Intro -->
+    <section class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-24 md:pb-20 flex flex-col gap-4">
+        <div class="max-w-3xl flex flex-col gap-5">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Bookkeeping cleanup &amp; catch-up</div>
+          <h1 class="font-heading font-extrabold text-[40px] md:text-[56px] leading-[1.05] text-navy tracking-tight">
+            Behind on your books? <span class="text-accent">We'll get you current.</span>
+          </h1>
+          <p class="text-muted text-xl">
+            Months of unreconciled accounts, a card nobody connected, a loan booked as an expense. It happens to good businesses, usually because the owner was busy doing the work. Our cleanup projects take Washington small businesses from “no idea where we stand” to books you can trust.
+          </p>
+          <div class="flex flex-wrap gap-3.5 pt-2">
+            <a href={bookingURL} class="bg-navy text-white no-underline font-bold px-7 py-4 rounded-full text-lg hover:bg-accent transition-colors">Get a free cleanup quote</a>
+            <a href="tel:3605292672" class="bg-white text-navy no-underline font-bold px-7 py-4 rounded-full text-lg border-2 border-navy hover:bg-sky2 transition-colors">Call 360-529-2672</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signs -->
+    <section class="bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 grid gap-12 lg:grid-cols-2 items-start">
+        <div class="flex flex-col gap-5">
+          <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight text-navy">Catch-up or cleanup — most businesses need both</h2>
+          <p class="text-muted text-lg">
+            <strong class="text-navy">Catch-up</strong> means recording months, or even years, of transactions that were never entered. <strong class="text-navy">Cleanup</strong> means fixing books that were kept, but kept wrong. Either way, the goal is the same: books that match your bank and card statements, with every transaction in the right place.
+          </p>
+          <p class="text-muted text-lg">
+            Want the full step-by-step? Read <a href="/blog/bookkeeping-cleanup-what-we-do-and-why" class="text-accent font-semibold">Bookkeeping cleanup: what we do and why it matters</a>.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <h2 class="font-heading font-extrabold text-2xl md:text-[30px] leading-tight text-navy">Signs you need a cleanup</h2>
+          <ul class="flex flex-col gap-3.5 list-none p-0 m-0">
+            {signs.map((item) => (
+              <li class="flex gap-4 items-start px-[22px] py-[18px] rounded-2xl bg-sky2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F7A55" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" class="shrink-0 mt-0.5"><path d="M5 12l5 5 9-10"></path></svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-10">
+        <div class="max-w-3xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">What's included</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">Everything it takes to trust your numbers again</h2>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {included.map((i) => (
+            <div class="bg-white rounded-2xl px-7 py-6 flex flex-col gap-2">
+              <h3 class="font-heading text-xl text-navy">{i.title}</h3>
+              <p class="text-muted">{i.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it matters in Washington -->
+    <section class="bg-white">
+      <div class="max-w-3xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-5">
+        <h2 class="font-heading font-extrabold text-3xl md:text-[38px] leading-tight text-navy">Why clean books matter more in Washington</h2>
+        <p class="text-muted text-lg">
+          Washington has no state income tax, but B&amp;O tax is charged on gross receipts — what you bring in, not what you keep. If revenue isn’t recorded accurately, what you report to the Department of Revenue may not be accurate either. That’s why every cleanup ends with a check of your books against your excise tax returns.
+        </p>
+        <p class="text-muted text-lg">
+          Clean books also make tax season cheaper, keep your business and personal money clearly separated, and let you say yes when a lender, landlord or buyer asks for financial statements.
+        </p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="bg-sky">
+      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-10">
+        <div class="max-w-3xl flex flex-col gap-4">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">How it works</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">One quote. Clean books. Then stay that way.</h2>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((s) => (
+            <div class="bg-white rounded-2xl px-7 py-6 flex flex-col gap-2">
+              <div class="text-accent font-heading font-extrabold text-2xl">{s.num}</div>
+              <h3 class="font-heading text-xl text-navy">{s.title}</h3>
+              <p class="text-muted">{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-muted text-lg">
+          After cleanup, see our <a href="/pricing" class="text-accent font-semibold">flat monthly bookkeeping plans</a> — $250 to $1,000 a month depending on how many accounts you run.
+        </p>
+      </div>
+    </section>
+
+    <YearEndOffer bookingURL={bookingURL} />
+
+    <!-- FAQ -->
+    <section class="bg-sky">
+      <div class="max-w-3xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-8">
+        <div class="flex flex-col gap-4 text-center">
+          <div class="text-accent font-bold text-sm tracking-widest uppercase">Cleanup questions</div>
+          <h2 class="font-heading font-extrabold text-3xl md:text-[44px] leading-tight text-navy">What owners ask before getting current</h2>
+        </div>
+        <div class="flex flex-col gap-3.5">
+          {faqs.map((f) => (
+            <div class="bg-white rounded-2xl px-7 py-6">
+              <h3 class="font-heading text-xl text-navy mb-2">{f.q}</h3>
+              <p class="text-muted">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-accent text-white">
+      <div class="max-w-4xl mx-auto px-6 py-20 md:py-24 flex flex-col gap-5 items-center text-center">
+        <h2 class="font-heading font-extrabold text-3xl md:text-[46px] leading-tight">The best time to fix your books is before you need them.</h2>
+        <p class="text-xl text-[#EAF3FF] max-w-xl">Book a free consultation. We'll look at where things stand and tell you exactly what it takes to get clean.</p>
+        <div class="flex flex-wrap gap-3.5 justify-center">
+          <a href={bookingURL} class="bg-white text-navy no-underline font-bold px-8 py-4 rounded-full text-lg hover:bg-sky2 transition-colors">Book a free consultation</a>
+          <a href="tel:3605292672" class="bg-transparent text-white no-underline font-bold px-8 py-4 rounded-full text-lg border-2 border-white hover:bg-white/10 transition-colors">Call 360-529-2672</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
