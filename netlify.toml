@@ -22,3 +22,11 @@
 # Trailing slashes (/pricing/ -> /pricing) are handled by the edge function in
 # netlify/edge-functions/trailing-slash.ts, because Netlify redirect rules
 # treat /pricing and /pricing/ as the same path and would loop.
+
+# ── New client intake ─────────────────────────────────────────────────
+# Short address for the Zoho Creator bookkeeping intake form.
+[[redirects]]
+  from = "/start"
+  to = "https://creatorapp.zohopublic.com/b2bservicesgroup663/bookkeeping-onboarding/form-perma/New_Bookkeeping_Client/avDFw7Ya2YafstYHZTGBxUbWjCM1Fhg52bbu7W48yU09ezb3fSJwCFAfR5OnBdbvSRv5Rb55GCm7vXOp6Jf5NzWGKF92UgkBnZPC"
+  status = 302
+  force = true
