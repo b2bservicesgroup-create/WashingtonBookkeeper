@@ -30,3 +30,11 @@
   to = "https://creatorapp.zohopublic.com/b2bservicesgroup663/bookkeeping-onboarding/form-perma/New_Bookkeeping_Client/avDFw7Ya2YafstYHZTGBxUbWjCM1Fhg52bbu7W48yU09ezb3fSJwCFAfR5OnBdbvSRv5Rb55GCm7vXOp6Jf5NzWGKF92UgkBnZPC"
   status = 302
   force = true
+
+# ── Get Started ───────────────────────────────────────────────────────
+# Short address for the Zoho Creator Business Needs Assessment form.
+[[redirects]]
+  from = "/get-started"
+  to = "https://creatorapp.zohopublic.com/b2bservicesgroup663/business-needs-assessment/form-perma/Business_Assessment/nkReOO5wpASPhCD0BQ039EXQK4KTPk4Mq0R55y5Kb12km2snw9p1mBzUpzmGOVhOj5BRg0dm7tzqkzpuN3ZqZQdGPxybzNOGW0NB"
+  status = 302
+  force = true
