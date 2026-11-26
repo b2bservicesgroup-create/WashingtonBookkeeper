@@ -60,7 +60,7 @@ const { bookingURL, compact = false } = Astro.props;
 </div>
 
 <div class="mt-5 bg-white rounded-[18px] px-8 py-6 flex flex-wrap gap-4 items-center justify-between border-2 border-dashed border-[#9CC3F5]">
-  <div class="flex-1 min-w-[280px]">
+  <div class="flex-1 min-w-[min(100%,280px)]">
     <div class="font-heading font-bold text-xl text-navy">{customPlan.name} plan</div>
     <div class="text-muted">{customPlan.body}</div>
   </div>
